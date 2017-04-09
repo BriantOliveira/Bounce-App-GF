@@ -103,7 +103,7 @@ $("#submit-button").click(function(event) {
 
     });
 
-
+    getArtistTrack(artistInput);
     $(".get-user-info").slideUp();
     $("#map, #re-do, .end-section").css("visibility", "visible");
 
