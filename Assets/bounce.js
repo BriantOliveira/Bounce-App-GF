@@ -199,9 +199,9 @@ database.ref().on("child_added", function(snapshot) {
 
     // Log everything that's coming out of snapshot
 
-    console.log(snapshot.val());
-    console.log(snapshot.val().name);
-    console.log(snapshot.val().artist);
+    // console.log(snapshot.val());
+    // console.log(snapshot.val().name);
+    // console.log(snapshot.val().artist);
 
     // Change the HTML to reflect
 
