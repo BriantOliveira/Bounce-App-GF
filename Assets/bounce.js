@@ -206,7 +206,7 @@ database.ref().on("child_added", function(snapshot) {
 
     // Change the HTML to reflect
 
-    $("#populate-name").html(snapshot.val().name + ", enjoy the night out.");
+    $("#populate-name").html(snapshot.val().name + ", enjoy the tunes.");
     // Handle the errors
 
 }, function(errorObject) {
@@ -217,32 +217,32 @@ database.ref().on("child_added", function(snapshot) {
 
 
 //Music player
-// function getArtistTrack(artist) {
+function getArtistTrack(artist) {
 
-//     var queryURL = "https://api.spotify.com/v1/search?q=" + artist + "&type=artist";
+    var queryURL = "https://api.spotify.com/v1/search?q=" + artist + "&type=artist";
 
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     }).done(function(response) {
-//         console.log(response);
-//         var artistID = response.artists.items[0].id;
-
-
-//         var queryURLTracks = "https://api.spotify.com/v1/artists/" + artistID + "/top-tracks?country=US";
-//         $.ajax({
-//             url: queryURLTracks,
-//             method: "GET"
-//         }).done(function(trackResponse) {
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).done(function(response) {
+        console.log(response);
+        var artistID = response.artists.items[0].id;
 
 
-//             console.log(trackResponse);
-//             var player = "<iframe src='https://embed.spotify.com/?uri=spotify:track:" +
-//                 trackResponse.tracks[0].id +
-//                 "' frameborder='0' allowtransparency='true'></iframe>";
+        var queryURLTracks = "https://api.spotify.com/v1/artists/" + artistID + "/top-tracks?country=US";
+        $.ajax({
+            url: queryURLTracks,
+            method: "GET"
+        }).done(function(trackResponse) {
 
-//             // Appending the new player into the HTML
-//             $("#music-player").append(player);
-//         });
-//     });
-// }
+
+            console.log(trackResponse);
+            var player = "<iframe src='https://embed.spotify.com/?uri=spotify:track:" +
+                trackResponse.tracks[0].id +
+                "' frameborder='0' allowtransparency='true'></iframe>";
+
+            // Appending the new player into the HTML
+            $("#music-player").append(player);
+        });
+    });
+}
