@@ -159,7 +159,7 @@ function initMap() {
             } else {
                 bootbox.alert({
                     size: "large",
-                    title: "Aw shit!",
+                    title: "Oops!",
                     message: "Looks like you mispelled something!",
                     callback: function() { $(".get-user-info").slideDown(); }
                 })
